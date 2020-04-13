@@ -42,9 +42,7 @@
         color: black;
         margin: auto;
     }
-    .no-padding {
-        padding: 0px;
-    }
+   
     input.form-text {
         background: #fff;
         border: 1px solid #dae2e6;
