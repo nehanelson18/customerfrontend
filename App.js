@@ -3,7 +3,8 @@ import Nav from "./components/Nav";
 import Home from "./Home";
 import Edit from "./Edit";
 import Billing from "./Billing";
-import Loggedin from "./Loggedin";
+import CreditCard from "./CreditCard";
+
 import Account from "./Account";
 
 
@@ -29,14 +30,15 @@ function App() {
     <MemoryRouter>
       <Router history={history}>
         <Nav />
-        <Route exact path="/" component={Home} />
+
         <Switch>
-          <Route exact path="/" component={Loggedin} />
+          <Route exact path="/" component={Home} />
 
           <PrivateRoute path="/Edit" component={Edit} />
           <PrivateRoute path="/Make" component={MakeReservation} />
           <PrivateRoute path="/Billing" component={Billing} />
           <PrivateRoute path="/Account" component={Account} />
+          <PrivateRoute path="/CreditCard" component={CreditCard} />
 
         </Switch>
       </Router>
