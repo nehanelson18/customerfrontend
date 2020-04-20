@@ -4,7 +4,7 @@ import Home from "./Home";
 import Edit from "./Edit";
 import Billing from "./Billing";
 import CreditCard from "./CreditCard";
-
+import AddVehicle from "./AddVehicle";
 import Account from "./Account";
 
 
@@ -39,6 +39,7 @@ function App() {
           <PrivateRoute path="/Billing" component={Billing} />
           <PrivateRoute path="/Account" component={Account} />
           <PrivateRoute path="/CreditCard" component={CreditCard} />
+          <PrivateRoute path="/AddVehicle" component={AddVehicle} />
 
         </Switch>
       </Router>

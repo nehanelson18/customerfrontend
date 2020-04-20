@@ -42,7 +42,7 @@ const NavBar = () => {
                 <NavDropdown.Item href="/Edit Account">
 
                 </NavDropdown.Item>
-                <NavDropdown.Item href="/Addvehicles">Add Vehicle Information</NavDropdown.Item>
+                <NavDropdown.Item href="/AddVehicle">Add Vehicle Information</NavDropdown.Item>
                 <NavDropdown.Item href="/CreditCard">Credit Card Information</NavDropdown.Item>
 
               </NavDropdown>
