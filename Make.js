@@ -3,6 +3,8 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Form';
 import mobiscroll from '@mobiscroll/react';
 import '@mobiscroll/react/dist/css/mobiscroll.min.css';
+import Row from 'react-bootstrap/Form';
+import Col from 'react-bootstrap/Form';
 
 
 
@@ -17,6 +19,13 @@ const max = new Date(currYear, currMonth + 6, currDay);
 let firstload = true;
 
 class Make extends React.Component {
+    show = () => {
+        this.external.instance.show();
+    }
+
+    setExternal = (comp) => {
+        this.external = comp;
+    }
     constructor(props) {
         super(props);
 
@@ -139,30 +148,12 @@ class Make extends React.Component {
     }
 
     render() {
+
         return (
             <mobiscroll.Form className="dms-calendar-booking">
+
                 <mobiscroll.FormGroup>
-                    <mobiscroll.FormGroupTitle>Single date & appointment booking</mobiscroll.FormGroupTitle>
-                    <mobiscroll.Calendar
-                        display="inline"
-                        type="hidden"
-                        controls={['calendar']}
-                        min={min}
-                        max={max}
-                        yearChange={false}
-                        responsive={{
-                            small: {
-                                months: 1
-                            },
-                            large: {
-                                months: 2
-                            }
-                        }}
-                        onPageLoading={this.onPageLoadingSingle}
-                    />
-                </mobiscroll.FormGroup>
-                <mobiscroll.FormGroup>
-                    <mobiscroll.FormGroupTitle>Booking multiple appointments</mobiscroll.FormGroupTitle>
+                    <mobiscroll.FormGroupTitle></mobiscroll.FormGroupTitle>
                     <mobiscroll.Calendar
                         display="inline"
                         type="hidden"
@@ -188,44 +179,34 @@ class Make extends React.Component {
                         onPageLoading={this.onPageLoadingMultiple}
                     />
                 </mobiscroll.FormGroup>
-                <mobiscroll.FormGroup>
-                    <mobiscroll.FormGroupTitle>Recurring booking & resource allocation</mobiscroll.FormGroupTitle>
-                    <mobiscroll.Calendar
-                        display="inline"
-                        type="hidden"
-                        controls={['calendar', 'time']}
-                        min={min}
-                        max={max}
-                        layout="fixed"
-                        calendarWidth={400}
-                        cssClass="dm-calendar-booking"
-                        yearChange={false}
-                        steps={{
-                            hour: 2,
-                            minute: 60
-                        }}
-                        responsive={{
-                            xsmall: {
-                                calendarWidth: undefined
-                            },
-                            medium: {
-                                rows: 7,
-                                circular: [false, false, false, true],
-                                calendarWidth: 400
-                            }
-                        }}
-                        touchUi={false}
-                        timeFormat="h A"
-                        colors={this.state.colors}
-                        labels={this.state.labels}
-                        invalid={this.state.invalid}
-                        valid={this.state.valid}
-                        onInit={this.onInit}
-                        onDayChange={this.onDayChange}
-                    />
-                </mobiscroll.FormGroup>
-            </mobiscroll.Form>
+                <div>
+                    <Form>
 
+                        <Form.Row>
+                            <Col>
+
+                                <label htmlFor="demo-non-form">Start Time</label>
+                                <mobiscroll.Time value={now}>
+                                    <input className="demo-non-form" />
+                                </mobiscroll.Time>
+                            </Col>
+
+                            <Col>
+                                <label htmlFor="demo-non-form">End Time</label>
+                                <mobiscroll.Time value={now}>
+                                    <input className="demo-non-form" />
+                                </mobiscroll.Time>
+                            </Col>
+                        </Form.Row>
+
+                    </Form>
+
+                    <div>
+                        <button onClick={this.show} className="external-button">Confirm Reservation</button>
+                    </div>
+
+                </div>
+            </mobiscroll.Form >
 
         );
     }

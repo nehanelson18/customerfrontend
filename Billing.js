@@ -7,7 +7,7 @@ class Billing extends React.Component {
     render() {
 
         return (
-            <div class="page" >
+            <div class="mutton" >
                 <Form>
 
                     <h1> Your Current Bill is: $215.00</h1>
@@ -25,6 +25,7 @@ class Billing extends React.Component {
                     </Form.Group>
                     <>
                         <Button as="input" type="submit" value="Pay Now!" />{' '}
+
                     </>
                 </Form>
             </div>
